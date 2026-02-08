@@ -1,6 +1,6 @@
 export type TabKey = 'dashboard' | 'accounts' | 'card' | 'activity' | 'transfer';
 
-export type AccountType = 'Checking' | 'Savings' | 'Credit';
+export type AccountType = 'Checking' | 'Savings' | 'Brokerage' | 'Credit';
 
 export type Account = {
   id: string;
