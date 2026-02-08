@@ -18,6 +18,13 @@ export const ACCOUNTS: Account[] = [
     subtitle: 'APY 4.35%',
   },
   {
+    id: 'acct-brokerage',
+    name: 'Investing Brokerage',
+    type: 'Brokerage',
+    balance: 12580.4,
+    subtitle: 'Available to transfer $12,580.40',
+  },
+  {
     id: 'acct-credit',
     name: 'Rewards Card',
     type: 'Credit',

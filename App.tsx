@@ -83,8 +83,6 @@ export default function App() {
     ]).start();
   }, [activeTab, contentOpacity, contentTranslate]);
 
-  const checkingAccount = accounts.find((account) => account.type === 'Checking') ?? accounts[0];
-
   const liquidBalance = useMemo(() => {
     return accounts
       .filter((account) => account.type !== 'Credit')
@@ -93,9 +91,11 @@ export default function App() {
 
   const spendProgress = Math.min(INSIGHTS.monthlySpend / INSIGHTS.monthlyBudget, 1);
 
+  const selectedSourceAccount = accounts.find((account) => account.id === selectedSourceId) ?? accounts[0];
+
   const transferValue = Number.parseFloat(transferAmount);
   const transferIsValid = Number.isFinite(transferValue) && transferValue > 0;
-  const transferExceedsBalance = transferIsValid && transferValue > Math.max(0, checkingAccount.balance);
+  const transferExceedsBalance = transferIsValid && transferValue > Math.max(0, selectedSourceAccount.balance);
 
   const currentPayee = PAYEES.find((payee) => payee.id === selectedPayeeId) ?? PAYEES[0];
 
